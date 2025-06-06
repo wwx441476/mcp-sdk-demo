@@ -5,13 +5,13 @@
 
 ## 1. 检查依赖
 
-- 首先要确保使用的是SpringBoot 3和JDK17，才能保证与MCP官方的Java SDK兼容。
-- maven版本我使用的是3.9.9，过低的版本例如3.6.1会产生编译失败的问题。
-  - Idea中Maven推荐使用 已捆绑(Maven 3) --版本3.9.9
-    - 正在导入 -> 导入程序的JDK -> 选择JDK17
-    - 运行程序 -> JRE -> 选择JDK17
-    - 项目结构 -> 项目 -> SDK -> 选择JDK17
-    - 这里吐槽一下Idea里面需要在多个地方配置JDK17，不太友好
+- 首先要确保使用的是SpringBoot 2和JDK8，才能保证与的Java SDK兼容。
+- maven版本我使用的是3.6.1，否则可能会产生编译失败的问题。
+  - Idea中Maven推荐使用 (Maven 3) --版本3.6.1
+    - 正在导入 -> 导入程序的JDK -> 选择JDK8
+    - 运行程序 -> JRE -> 选择JDK8
+    - 项目结构 -> 项目 -> SDK -> 选择JDK8
+    - 这里吐槽一下Idea里面需要在多个地方配置JDK8，不太友好
 
 ## 2. Port 12000 Fails to Start
 
