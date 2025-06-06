@@ -6,6 +6,8 @@ import io.modelcontextprotocol.client.transport.StdioClientTransport;
 import io.modelcontextprotocol.spec.McpSchema;
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class StdioClientMcpTest {
@@ -32,16 +34,19 @@ public class StdioClientMcpTest {
     public static void createDirectory(McpSyncClient client) {
         McpSchema.CallToolRequest callToolRequest = new McpSchema.CallToolRequest(
                 "create_directory",
-                Map.of("path", "mcp")
+                Collections.singletonMap("path", "mcp")
         );
         McpSchema.CallToolResult callToolResult = client.callTool(callToolRequest);
         System.out.println(callToolResult.content());
     }
 
     public static void createFile(McpSyncClient client) {
+        Map<String, Object> arguments = new HashMap<>();
+        arguments.put("path", "mcp/test.txt");
+        arguments.put("content", "hello world");
         McpSchema.CallToolRequest callToolRequest = new McpSchema.CallToolRequest(
                 "write_file",
-                Map.of("path", "mcp/test.txt", "content", "hello world")
+                arguments
         );
         McpSchema.CallToolResult callToolResult = client.callTool(callToolRequest);
         System.out.println(callToolResult.content());

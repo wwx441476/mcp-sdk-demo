@@ -6,6 +6,7 @@ import io.modelcontextprotocol.spec.McpClientTransport;
 import io.modelcontextprotocol.spec.McpSchema;
 
 import java.time.Duration;
+import java.util.Collections;
 import java.util.Map;
 
 public class HttpClientSseMcpTest {
@@ -33,7 +34,7 @@ public class HttpClientSseMcpTest {
     public static void searchPerson(McpSyncClient client) {
         McpSchema.CallToolRequest callToolRequest = new McpSchema.CallToolRequest(
                 "searchPerson",
-                Map.of("name", "典韦")
+                Collections.singletonMap("name", "典韦")
         );
         McpSchema.CallToolResult callToolResult = client.callTool(callToolRequest);
         System.out.println(callToolResult.content());
